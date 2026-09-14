@@ -19,7 +19,7 @@ X_train , X_test , y_train , y_test = train_test_split(X,y,test_size=0.10,random
 max_depth = 10
 n_estimators = 15
 
-# mlflow.autolog()
+mlflow.autolog()
 mlflow.set_experiment("MlOps-Exp1-MLFLow")
 
 
@@ -48,10 +48,6 @@ with mlflow.start_run():
 
     mlflow.log_artifact("Confusion_matix.png")
     mlflow.log_artifact(__file__)
-
-    mlflow.set_tags({"Authors":'Nikhil Kant',"Project":'Wine Classfication'})
-
-    mlflow.sklearn.log_model(rf,"Random-Forest-model")
 
 
     print(accuracy)
